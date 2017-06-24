@@ -11,5 +11,8 @@ class Afa
         groups
       end
     end
+
+    def assign_restaurants
+    end
   end
 end
