@@ -11,10 +11,15 @@ User.create(name: 'Jason S', email: 'shanmughamj@nextcapital.com')
 User.create(name: 'Chris P', email: 'passolanoc@nextcapital.com')
 User.create(name: 'Zhengchao L', email: 'liuz@nextcapital.com')
 
-
 Restaurant.create(name: 'Potbelly')
 Restaurant.create(name: 'Jimmy Johns')
 Restaurant.create(name: 'Subway')
 Restaurant.create(name: 'Chipotle')
 Restaurant.create(name: 'Pret')
 Restaurant.create(name: 'McDonalds')
+Restaurant.create(name: 'IDOF')
+Restaurant.create(name: 'Noodles')
+
+['Italian', 'American', 'Chinese', 'Mediterranean'].each do |category_name|
+  Category.create(name: category_name)
+end
