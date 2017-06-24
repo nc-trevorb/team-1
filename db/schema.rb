@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170624203255) do
+ActiveRecord::Schema.define(version: 20170624214354) do
 
   create_table "blacklists", force: :cascade do |t|
     t.integer  "user_id"
@@ -36,8 +36,10 @@ ActiveRecord::Schema.define(version: 20170624203255) do
 
   create_table "lunches", force: :cascade do |t|
     t.datetime "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "restaurant_id"
+    t.index ["restaurant_id"], name: "index_lunches_on_restaurant_id"
   end
 
   create_table "lunches_users", id: false, force: :cascade do |t|
