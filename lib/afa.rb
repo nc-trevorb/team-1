@@ -11,5 +11,9 @@ class Afa
         groups
       end
     end
+
+    def pick_restaurant(users)
+      users.first.preferences.last.restaurant
+    end
   end
 end
