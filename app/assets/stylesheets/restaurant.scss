@@ -17,13 +17,23 @@
 
 .restaurant-thumb {
   padding: 10px;
+  margin-bottom: 60px;
   border-radius: 6px;
 
   &.picked-restaurant {
     background-color: lightblue;
   }
 
-  margin-bottom: 60px;
+  h4 {
+    margin-bottom: 0;
+  }
+
+  h5 {
+    margin-top: 0;
+    font-size: 12px;
+    color: #C0C0C0;
+  }
+
   form {
     display: inline;
 

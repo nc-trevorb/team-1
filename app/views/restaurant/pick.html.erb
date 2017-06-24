@@ -46,6 +46,9 @@
           class="restaurant-thumb <%= 'picked-restaurant' if is_picked%>"
         >
           <h4><%= restaurant.name %></h4>
+          <% if restaurant.categories.count %>
+            <h5 class="text-muted"><%= restaurant.categories.map(&:name).join(", ") %></h5>
+          <% end%>
           <p>
             <a
               href="<%= build_link(restaurant) %>"
