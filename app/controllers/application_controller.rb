@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def user
     raise "token must be provided" unless params[:token]
 
-    @user ||= User.find_by_token(params[:token])
+    @user ||= User.find_by_token!(params[:token])
   end
 
   def restaurants
