@@ -12,8 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20170624185903) do
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
+  create_table "blacklists", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "restaurant_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["restaurant_id"], name: "index_blacklists_on_restaurant_id"
+    t.index ["user_id"], name: "index_blacklists_on_user_id"
   end
 
   create_table "lunches", force: :cascade do |t|
