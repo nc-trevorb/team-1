@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+    <h1>Hi, <%= @user.name %>. Lunch Time!</h1>
+    <p>
+      Today, you are eating with: <br>
+    </p>
+    <% @teammates.each do |teammate| %>
+      <p>   <%= @teammate.name %> </p>
+    <% end %>
+    <p><br> At: <%= @lunch.restaurant.name %></p>
+    <p> Meet your team on <%= @lunch.date%> at the elevator! </p>
+
+  </body>
+</html>
