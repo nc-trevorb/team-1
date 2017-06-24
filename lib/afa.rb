@@ -14,5 +14,9 @@ class Afa
 
     def assign_restaurants
     end
+    
+    def pick_restaurant(users)
+      users.first.preferences.last.restaurant
+    end
   end
 end
