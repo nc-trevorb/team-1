@@ -5,7 +5,7 @@ class SendMorningEmailJob < ApplicationJob
     Afa.generate_daily_token
     [User.last].each do |user|
       UserMailer.morning_email(user).deliver_now
-      DoGroupAssignmentJob.set(wait: 10.second).perform_later()
     end
+    DoGroupAssignmentJob.set(wait: 10.second).perform_later()
   end
 end

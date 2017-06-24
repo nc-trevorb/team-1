@@ -24,7 +24,9 @@ class Afa
     end
 
     def pick_restaurant(users)
-      users.first.preferences.last.restaurant
+      satisfied, unsatisfied = users.partition(&:satisfied_yesterday)
+
+      (unsatisfied + satisfied).first.preferences.last.restaurant
     end
   end
 end
