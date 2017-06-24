@@ -14,5 +14,6 @@ module Team1
     config.action_mailer.raise_delivery_errors = true
     config.action_mailer.perform_deliveries = true
     config.action_mailer.raise_delivery_errors = true
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
