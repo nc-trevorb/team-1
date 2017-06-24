@@ -25,8 +25,9 @@ class Afa
 
     def pick_restaurant(users)
       satisfied, unsatisfied = users.partition(&:satisfied_yesterday)
+      users.each { |u| u.update_attributes!(satisfied_yesterday: false) }
 
-      (unsatisfied + satisfied).first.preferences.last.restaurant
+      (unsatisfied.shuffle + satisfied).first.preferences.last.restaurant
     end
   end
 end

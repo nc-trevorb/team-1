@@ -37,5 +37,13 @@ describe Afa do
 
       expect(Afa.pick_restaurant([user1, user2])).to eq(restaurant2)
     end
+
+    it 'resets satisfied_yesterday values' do
+      user = User.create!(satisfied_yesterday: true)
+      Preference.create!(user: user, restaurant: Restaurant.create!)
+      Afa.pick_restaurant([user])
+
+      expect(user.reload.satisfied_yesterday).to eq(false)
+    end
   end
 end
