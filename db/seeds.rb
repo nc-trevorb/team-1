@@ -11,15 +11,16 @@ User.create(name: 'Jason S', email: 'shanmughamj@nextcapital.com')
 User.create(name: 'Chris P', email: 'passolanoc@nextcapital.com')
 User.create(name: 'Zhengchao L', email: 'liuz@nextcapital.com')
 
-Restaurant.create(name: 'Potbelly')
-Restaurant.create(name: 'Jimmy Johns')
-Restaurant.create(name: 'Subway')
-Restaurant.create(name: 'Chipotle')
-Restaurant.create(name: 'Pret')
-Restaurant.create(name: 'McDonalds')
-Restaurant.create(name: 'IDOF')
-Restaurant.create(name: 'Noodles')
-
-['Italian', 'American', 'Chinese', 'Mediterranean'].each do |category_name|
+['Italian', 'American', 'Japanese', 'Chinese', 'Mediterranean', 'Mexican', 'Healthy'].each do |category_name|
   Category.create(name: category_name)
 end
+
+Restaurant.create(name: 'Potbelly', categories: [Category['American']])
+Restaurant.create(name: 'Jimmy Johns', categories: [Category['American']])
+Restaurant.create(name: 'Subway', categories: [Category['American']])
+Restaurant.create(name: 'Chipotle', categories: [Category['Mexican']])
+Restaurant.create(name: 'Pret', categories: [Category['Healthy']])
+Restaurant.create(name: 'McDonalds', categories: [Category['American'], Category['Healthy']])
+Restaurant.create(name: 'IDOF', categories: [Category['Mediterranean']])
+Restaurant.create(name: 'Noodles', categories: [Category['American'], Category['Italian']])
+Restaurant.create(name: 'Tokyo Lunchbox', categories: [Category['Japanese']])
