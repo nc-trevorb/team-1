@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170624172901) do
+ActiveRecord::Schema.define(version: 20170624173835) do
 
   create_table "lunches", force: :cascade do |t|
     t.datetime "date"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20170624172901) do
     t.integer "user_id"
     t.index ["lunch_id"], name: "index_lunches_users_on_lunch_id"
     t.index ["user_id"], name: "index_lunches_users_on_user_id"
+  end
+
+  create_table "preferences", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "restaurant_id"
+    t.datetime "date"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["restaurant_id"], name: "index_preferences_on_restaurant_id"
+    t.index ["user_id"], name: "index_preferences_on_user_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
