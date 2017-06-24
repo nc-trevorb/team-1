@@ -3,7 +3,7 @@ class DoRestaurantAssignmentJob < ApplicationJob
 
   def perform(*args)
     Afa.assign_restaurants
-    [User.last].each do |user|
+    User.all.each do |user|
       UserMailer.lunch_email(user).deliver_now
     end
   end
