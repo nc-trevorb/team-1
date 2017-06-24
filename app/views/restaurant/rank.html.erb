@@ -1,2 +1,52 @@
 <h1>Restaurant#rank</h1>
 <p>Find me in app/views/restaurant/rank.html.erb</p>
+<!DOCTYPE HTML>
+<HTML>
+<title>
+Preference Time!
+</title>
+<head>
+  <meta name="csrf-param" content="authenticity_token" />
+  <meta name="csrf-token" content="VTSCk7O9+rJ7k7MXBt+1TxrGBV8/Mfi9iW1TSwUzSUmuCiWRi0NIEzGUaGlW5jDWjUkfyva1zvEcbTtkxIVbwA==" />
+
+      <link rel="stylesheet" media="screen" href="/assets/bootstrap-theme.min.self-3a9e70d08573b263427c5a00c46e60fbff2b490a805d7eefbe6633086b13eae4.css?body=1" />
+      <link rel="stylesheet" media="screen" href="/assets/bootstrap.min.self-511807f34f490c5d04f397a2ad4fc4a9135fcb5300f3dd5cb88f1cf678357cf3.css?body=1" />
+      <link rel="stylesheet" media="screen" href="/assets/restaurant.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" />
+      <link rel="stylesheet" media="screen" href="/assets/application.self-af04b226fd7202dfc532ce7aedb95a0128277937e90d3b3a3d35e1cce9e16886.css?body=1" />
+      <link rel="stylesheet" media="screen" href="/assets/bootstrap.min.self-511807f34f490c5d04f397a2ad4fc4a9135fcb5300f3dd5cb88f1cf678357cf3.css?body=1" />
+      <link rel="stylesheet" media="screen" href="/assets/bootstrap-theme.min.self-3a9e70d08573b263427c5a00c46e60fbff2b490a805d7eefbe6633086b13eae4.css?body=1" />
+  <h1 id="information">
+    Hey $Name, its almost lunch time! Please choose your food preference for today:
+  </h1>
+</head>
+<body>
+  Insert Map here with the N food preferences
+  <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5983.219304517244!2d-87.62719869186675!3d41.87947306844828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sfood!5e0!3m2!1sen!2sus!4v1498326384380"
+  width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+  <div class="form">
+  <form action="">
+    <table>
+      <tr>
+        <th>Rank</th>
+        <th>Restaurant</th>
+        <th>I cannot eat at this restaurant</th>
+      </tr>
+      <tr>
+        <td><input type="text" name="restaurant_1"></td>
+        <td>$Restaurant 1</td>
+        <td><input type="checkbox" name="restraurant_1"></td>
+      </tr>
+      <tr>
+        <td><input type="text" name="restaurant_2"></td>
+        <td>$Restaurant 2</td>
+        <td><input type="checkbox" name="restraurant_2"></td>
+      </tr>
+      <tr>
+        <td><input type="text" name="restaurant_3"></td>
+        <td>$Restaurant 3</td>
+        <td><input type="checkbox" name="restraurant_3"></td>
+      </tr>
+  </form>
+</div>
+</body>
+</HTML>
