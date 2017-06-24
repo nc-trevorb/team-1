@@ -3,7 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #pick-list img {
-  width: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+#picked-restaurant-callout {
+  border-radius: 6px;
+  border: 8px solid lightblue;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
 }
 
 .restaurant-thumb {
@@ -17,10 +26,10 @@
   margin-bottom: 60px;
   form {
     display: inline;
-  }
 
-  a, input {
-    margin-left: 30px;
+    input {
+      margin-left: 30px;
+    }
   }
 }
 

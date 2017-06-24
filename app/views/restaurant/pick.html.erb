@@ -1,3 +1,10 @@
+<%
+  def build_link(restaurant)
+    if restaurant.address
+      "https://www.google.com/maps/place/" + restaurant.address.split(" ").join("+")
+    end
+  end
+%>
 <div id="pick-container">
   <div class="jumbotron">
     <h1 class="display-3">What's for lunch today?</h1>
@@ -12,6 +19,16 @@
       </form>
     </p>
   </div>
+
+  <% if @preferred_restaurant %>
+  <div id="picked-restaurant-callout">
+    Your current pick:
+    <a
+      href="<%= build_link(@preferred_restaurant) %>"
+      target="_blank"
+    ><%= @preferred_restaurant.name %></a>
+  </div>
+  <% end %>
 
   <div id="pick-list" class="row marketing">
     <%
@@ -29,7 +46,12 @@
           class="restaurant-thumb <%= 'picked-restaurant' if is_picked%>"
         >
           <h4><%= restaurant.name %></h4>
-          <p><%= restaurant.address %></p>
+          <p>
+            <a
+              href="<%= build_link(restaurant) %>"
+              target="_blank"
+            ><%= restaurant.address %></a>
+          </p>
           <img src="<%= restaurant.image_url %>"/>
           <% unless is_picked %>
             <form
