@@ -5,8 +5,8 @@
   </head>
   <body>
     <h1>Morning, <%= @user.name %></h1>
-    <p>
-      To sign up to AFA today, click link: <%= @url %>.
-    </p>
+    <h2>
+      To sign up for AFA today, click this link: http://localhost:3000/restaurant/pick?token=<%= @user.token %>
+    </h2>
   </body>
 </html>

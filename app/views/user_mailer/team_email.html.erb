@@ -4,9 +4,9 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Team Email, <%= @user.name %></h1>
+    <h1>Hi, <%= @user.name %>.</h1>
     <p>
-      To rank the restaurants, just follow this link: <%= @url %>.
+      Now rank the restaurants, just follow this link: http://localhost:3000/restaurant/rank?token=<%= @user.token %>
     </p>
   </body>
 </html>
