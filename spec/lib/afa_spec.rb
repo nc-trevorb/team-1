@@ -21,7 +21,19 @@ describe Afa do
       restaurant2 = Restaurant.create!
 
       Preference.create!(user: user1, restaurant: restaurant1)
-      Preference.create!(user: user1, restaurant: restaurant2)
+      Preference.create!(user: user2, restaurant: restaurant2)
+
+      expect(Afa.pick_restaurant([user1, user2])).to eq(restaurant1)
+    end
+
+    it "prioritizes users who weren't satisfied yesterday" do
+      user1 = User.create!(satisfied_yesterday: true)
+      user2 = User.create!
+      restaurant1 = Restaurant.create!
+      restaurant2 = Restaurant.create!
+
+      Preference.create!(user: user1, restaurant: restaurant1)
+      Preference.create!(user: user2, restaurant: restaurant2)
 
       expect(Afa.pick_restaurant([user1, user2])).to eq(restaurant2)
     end
