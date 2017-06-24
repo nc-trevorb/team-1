@@ -1,3 +1,23 @@
 // Place all the styles related to the Restaurant controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#pick-list img {
+  width: 50%;
+}
+
+.restaurant-thumb {
+  margin-bottom: 60px;
+  form {
+    display: inline;
+  }
+
+  a {
+    margin-left: 30px;
+  }
+}
+
+// Boostrap overrides
+.container {
+  max-width: 86rem !important;
+}

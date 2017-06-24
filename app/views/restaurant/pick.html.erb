@@ -1,30 +1,53 @@
-<div class="container">
-  <div class="starter-template">
-    <h1>Welcome to Automatic Food Assigner (AFA)</h1>
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+<div id="pick-container">
+  <div class="jumbotron">
+    <h1 class="display-3">What's for lunch today?</h1>
+    <p class="lead">Tip: Lunch is the least important meal of the day.</p>
+    <p>
+      <a
+        class="btn btn-lg btn-success"
+        href="javascript:void(0)"
+        role="button"
+      >Pick for me!</a>
+    </p>
   </div>
 
-  <div class="row marketing">
+  <div id="pick-list" class="row marketing">
+    <%
+      left_restaurants, right_restaurants = @restaurants.partition.each_with_index { |_, i| i.even? }
+    %>
     <div class="col-lg-6">
-      <h4>Subheading</h4>
-      <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-      <h4>Subheading</h4>
-      <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-      <h4>Subheading</h4>
-      <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+      <% left_restaurants.each do |restaurant| %>
+        <div class="restaurant-thumb">
+          <h4><%= restaurant.name %></h4>
+          <p><%= restaurant.address %></p>
+          <img src="<%= restaurant.image_url %>"/>
+          <a
+            class="btn btn-lg btn-success"
+            href="javascript:void(0)"
+            role="button"
+          >Pick</a>
+        </div>
+      <% end %>
     </div>
 
     <div class="col-lg-6">
-      <h4>Subheading</h4>
-      <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-      <h4>Subheading</h4>
-      <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-      <h4>Subheading</h4>
-      <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+      <% right_restaurants.each do |restaurant| %>
+        <div class="restaurant-thumb">
+          <h4><%= restaurant.name %></h4>
+          <p><%= restaurant.address %></p>
+          <img src="<%= restaurant.image_url %>"/>
+          <a
+            class="btn btn-lg btn-success"
+            href="javascript:void(0)"
+            role="button"
+          >Pick</a>
+        </div>
+      <% end %>
     </div>
   </div>
-</div><!-- /.container -->
+
+  <footer class="footer">
+    <p>&copy; NextCapital <%= Time.now.year %></p>
+  </footer>
+
+</div> <!-- /container -->

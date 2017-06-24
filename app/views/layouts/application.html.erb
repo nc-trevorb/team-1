@@ -7,9 +7,31 @@
     <%= stylesheet_link_tag "application" %>
     <%= stylesheet_link_tag "bootstrap.min" %>
     <%= stylesheet_link_tag "bootstrap-theme.min" %>
+    <%= stylesheet_link_tag "narrow-jumbotron" %>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link" href="#"><%= @user.name %></a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">
+          A<span class="small-text">utomatic</span>
+          F<span class="small-text">ood</span>
+          A<span class="small-text">ssigner</span>
+        </h3>
+      </div>
+      <%= yield %>
+    </div>
   </body>
 </html>

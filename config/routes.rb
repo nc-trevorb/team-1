@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'restaurant/pick'
+  post 'restaurant/pick'
 
   get 'restaurant/rank'
 
