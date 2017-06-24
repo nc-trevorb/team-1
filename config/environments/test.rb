@@ -1,3 +1,4 @@
+require 'resolv-replace'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -36,7 +37,21 @@ Rails.application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
-
+  config.assets.quiet = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 465,
+    domain:               'gmail.com',
+    user_name:            'nchackthonafa',
+    password:             'password2345',
+    authentication:       'plain',
+    ssl: true,
+    # enable_starttls_auto: true
+  }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

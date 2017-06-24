@@ -1,3 +1,4 @@
+require 'resolv-replace'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -74,6 +75,21 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
+  config.assets.quiet = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 465,
+    domain:               'gmail.com',
+    user_name:            'nchackthonafa',
+    password:             'password2345',
+    authentication:       'plain',
+    ssl: true,
+    # enable_starttls_auto: true
+  }
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
