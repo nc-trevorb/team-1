@@ -1,5 +1,13 @@
 class Afa
   class << self
+    def generate_daily_token
+      User.all.each do |user|
+        user.token = SecureRandom.base64(15).tr('+/=', '0aZ').strip.delete("\n")
+        user.save
+      end
+
+    end
+
     def assign_groups
       groups = User.all.shuffle.in_groups_of(3)
 
@@ -14,7 +22,7 @@ class Afa
 
     def assign_restaurants
     end
-    
+
     def pick_restaurant(users)
       users.first.preferences.last.restaurant
     end
