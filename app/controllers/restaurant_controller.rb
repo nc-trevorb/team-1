@@ -1,13 +1,19 @@
 class RestaurantController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+
   def pick
     user
     restaurants
 
-    respond_to do |format|
-      format.html {}
-      format.js   {}
-      format.json {}
+    if request.post? && params[:restaurant_id]
+      user.pick_restaurant(params[:restaurant_id])
     end
+
+    @preferred_restaurant = user.preferred_restaurant
+  end
+
+  def make_pick
+    render json: user.pick_restaurant(params[:restaurant_id])
   end
 
   def rank

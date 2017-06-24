@@ -7,12 +7,19 @@
 }
 
 .restaurant-thumb {
+  padding: 10px;
+  border-radius: 6px;
+
+  &.picked-restaurant {
+    background-color: lightblue;
+  }
+
   margin-bottom: 60px;
   form {
     display: inline;
   }
 
-  a {
+  a, input {
     margin-left: 30px;
   }
 }

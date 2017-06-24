@@ -3,47 +3,47 @@
     <h1 class="display-3">What's for lunch today?</h1>
     <p class="lead">Tip: Lunch is the least important meal of the day.</p>
     <p>
-      <a
-        class="btn btn-lg btn-success"
-        href="javascript:void(0)"
-        role="button"
-      >Pick for me!</a>
+      <form
+        method="post"
+        action="/restaurant/pick?token=<%= @user.token %>"
+      >
+        <input type="hidden" name="restaurant_id" value="<%= @restaurants.map(&:id).sample %>">
+        <input type="submit" value="Pick for me!" class="btn btn-lg btn-success"/>
+      </form>
     </p>
   </div>
 
   <div id="pick-list" class="row marketing">
     <%
-      left_restaurants, right_restaurants = @restaurants.partition.each_with_index { |_, i| i.even? }
+      preferred_restaurant_id = @preferred_restaurant.try(:id)
+      @restaurants.sort_by(&:name).partition.each_with_index do |_, i|
+        i.even?
+      end.each do |restaurants|
     %>
     <div class="col-lg-6">
-      <% left_restaurants.each do |restaurant| %>
-        <div class="restaurant-thumb">
+      <% restaurants.each do |restaurant|
+           is_picked = preferred_restaurant_id == restaurant.id
+      %>
+        <div
+          id="restaurant-<%= restaurant.id %>"
+          class="restaurant-thumb <%= 'picked-restaurant' if is_picked%>"
+        >
           <h4><%= restaurant.name %></h4>
           <p><%= restaurant.address %></p>
           <img src="<%= restaurant.image_url %>"/>
-          <a
-            class="btn btn-lg btn-success"
-            href="javascript:void(0)"
-            role="button"
-          >Pick</a>
+          <% unless is_picked %>
+            <form
+              method="post"
+              action="/restaurant/pick?token=<%= @user.token %>"
+            >
+              <input type="hidden" name="restaurant_id" value="<%= restaurant.id %>">
+              <input type="submit" value="Pick" class="btn btn-lg btn-success"/>
+            </form>
+          <% end %>
         </div>
       <% end %>
     </div>
-
-    <div class="col-lg-6">
-      <% right_restaurants.each do |restaurant| %>
-        <div class="restaurant-thumb">
-          <h4><%= restaurant.name %></h4>
-          <p><%= restaurant.address %></p>
-          <img src="<%= restaurant.image_url %>"/>
-          <a
-            class="btn btn-lg btn-success"
-            href="javascript:void(0)"
-            role="button"
-          >Pick</a>
-        </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 
   <footer class="footer">
